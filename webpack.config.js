@@ -1,28 +1,27 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
 const SRC_DIR = __dirname + '/src';
 const DIST_DIR = __dirname + '/dist';
 
 module.exports = {
-  entry: [
-    SRC_DIR + '/index.jsx'
-  ],
+  entry: [SRC_DIR + '/index.jsx'],
   output: {
     path: DIST_DIR,
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
+  target: 'web',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.(scss|sass|css)$/,
@@ -35,24 +34,24 @@ module.exports = {
               modules: true,
               sourceMap: true,
               importLoaders: 1,
-              localIdentName: '[local]___[hash:base64:5]'
-            }
+              localIdentName: '[local]___[hash:base64:5]',
+            },
           },
-        'sass-loader',
-        ]
+          'sass-loader',
+        ],
       },
       {
         test: /\.(html)$/,
         exclude: /node_modules/,
         use: {
           loader: 'html-loader',
-          options: {minimize: true}
-        }
-      }
-    ]
+          options: { minimize: true },
+        },
+      },
+    ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -63,11 +62,14 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[hash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
-    })
+    }),
   ],
+  watch: true,
   devServer: {
-    contentBase: DIST_DIR,
+    historyApiFallback: true,
+    contentBase: SRC_DIR,
     hot: true,
-    port: 3000
-  }
+    port: 3000,
+    watchContentBase: true,
+  },
 };

@@ -1,0 +1,19 @@
+@import '../../styles/main.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $gray-800;
+  z-index: 10;
+  height: 80px;
+  display: flex;
+}
+
+.title {
+  flex-grow: 1;
+  padding-left: 1rem;
+  margin: auto;
+  color: $white;
+  text-decoration: none;
+}

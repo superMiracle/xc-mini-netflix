@@ -8,26 +8,6 @@
     "start": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/marcnuri-demo/react-webpack-babel-sass-boilerplate.git"
-  },
-  "keywords": [],
-  "author": {
-    "name": "Marc Nuri",
-    "url": "https://blog.marcnuri.com"
-  },
-  "license": "Apache-2.0",
-  "licenses": [
-    {
-      "type": "Apache-2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0"
-    }
-  ],
-  "bugs": {
-    "url": "https://github.com/marcnuri-demo/react-webpack-babel-sass-boilerplate/issues"
-  },
-  "homepage": "https://github.com/marcnuri-demo/react-webpack-babel-sass-boilerplate#readme",
   "devDependencies": {
     "@babel/core": "7.2.2",
     "@babel/plugin-proposal-object-rest-spread": "7.3.2",
@@ -50,7 +30,11 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.6.2",
     "react": "^16.8.1",
-    "react-dom": "^16.8.1"
+    "react-dom": "^16.8.1",
+    "react-redux": "^7.2.6",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
   }
 }

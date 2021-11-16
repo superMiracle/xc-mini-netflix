@@ -1,0 +1,9 @@
+.root {
+  display: flex;
+  margin-top: 80px;
+}
+
+.content {
+  flex-grow: 1;
+  overflow-x: hidden;
+}
